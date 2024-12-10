@@ -23,31 +23,35 @@ Esta es una API RESTful desarrollada con **Express**, **MongoDB** y **TypeScrip*
 
 4. Crea un archivo .env en el directorio raíz del proyecto con las siguientes variables:
 
-    JWT_SECRET=<tu-clave-secreta>
-    URI_DB=<tu-uri-de-mongodb>
-    PORT= 3000
+    . JWT_SECRET=<tu-clave-secreta>
+    . URI_DB=<tu-uri-de-mongodb>
+    . PORT= 3000
 
-5. Rutas de la API
+## Rutas de la API
     Rutas de autenticación
     POST /api/users/register
 
     Registra un nuevo usuario.
     Body:
+```json
 {
     "username": "string",
     "password": "string"
 }
+```
 
     POST /api/users/login
 
     Inicia sesión y genera un token JWT.
     Body:
+```json    
 {
    "username": "string",
    "password": "string"
 }
+```
 
-    Rutas para gestionar productos
+## Rutas para gestionar productos
     GET /api/products
 
     Obtiene todos los productos.
@@ -58,45 +62,49 @@ Esta es una API RESTful desarrollada con **Express**, **MongoDB** y **TypeScrip*
 
         Crea un nuevo producto.
     Body:
+```json    
 {
     "name": "string",
     "description": "string",
     "price": "number",
     "stock": "number"
 }
+```
 
     PATCH /api/products/:id
 
     Actualiza un producto existente por su ID.
     Body:
+```json    
 {
     "name": "string",
     "description": "string",
     "price": "number",
     "stock": "number"
 }
+```
 
     DELETE /api/products/:id
 
     Elimina un producto por su ID.
 
-Middleware de autenticación
+- **Middleware de autenticación**
 Todas las rutas de productos están protegidas por autenticación JWT. Para acceder a estas rutas, debes incluir un token válido en el encabezado Authorization de la solicitud: 
 
     Authorization: Bearer <tu-token-jwt>
 
 Si el token no está presente o es inválido, recibirás un error con el mensaje "Acceso denegado" o "Token inválido".
 
-Manejo de Errores
+- **Manejo de Errores**
 La API devuelve los siguientes códigos de estado HTTP para indicar el resultado de las solicitudes:
 
-200 OK: Solicitud exitosa.
-201 Created: Recurso creado con éxito.
-400 Bad Request: Solicitud mal formada o falta de datos.
-401 Unauthorized: Token no proporcionado o inválido.
-404 Not Found: Recurso no encontrado.
-500 Internal Server Error: Error del servidor.
+- **200 OK: Solicitud exitosa.**
+- **201 Created: Recurso creado con éxito.**
+- **400 Bad Request: Solicitud mal formada o falta de datos.**
+- **401 Unauthorized: Token no proporcionado o inválido.**
+- **404 Not Found: Recurso no encontrado.**
+- **500 Internal Server Error: Error del servidor.**
 
 
-Contribuciones
+## Contribuciones
 Si deseas contribuir al proyecto, siéntete libre de realizar un fork y enviar un pull request
