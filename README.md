@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Esta es una API RESTful desarrollada con **Express**, **MongoDB** y **TypeScrip** para la gestión de productos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos, así como gestionar usuarios mediante autenticación con **JWT**.
+Esta es una API RESTful desarrollada con **Express**, **MongoDB** y **TypeScript** para la gestión de productos. La API permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los productos, así como gestionar usuarios mediante autenticación con **JWT**.
 
 ## Requisitos
 
