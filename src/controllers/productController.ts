@@ -11,6 +11,18 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 }
 
+const getProductById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const product = await Product.getProductById(id);
+
+    res.json(product);
+  } catch (error: any) {
+    res.status(404).json({ status: 404, error: error.message });
+  }
+}
+
 const addProduct = async (req: Request, res: Response) => {
   const { name, description, price, stock } = req.body
 
@@ -49,4 +61,4 @@ const deleteProduct = async (req: Request, res: Response) => {
   }
 }
 
-export { getAllProducts, addProduct, updateProduct, deleteProduct }
+export { getAllProducts, getProductById, addProduct, updateProduct, deleteProduct }
